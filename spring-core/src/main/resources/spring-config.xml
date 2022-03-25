@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:annotation-config/>
+    <bean id="notification" class="demo.message.Notification" autowire="constructor"/>
+<!--    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+
+    <bean id="message" class="demo.message.Sms"/>
+
+    <bean id="email" class="demo.message.Email"/>
+
+
+    <bean id="employee" class="demo.model.Employee">
+        <constructor-arg name="name" value="Kamran"/>
+        <constructor-arg name="surname" value="Mammadzada"/>
+        <constructor-arg name="age" value="23"/>
+        <constructor-arg name="salary" value="99.0"/>
+        <constructor-arg name="phoneNumbers">
+            <list>
+                <value>+99455640423</value>
+                <value>99</value>
+            </list>
+        </constructor-arg>
+
+        <constructor-arg name="devices">
+            <list>
+                <ref bean="deviceSport"/>
+                <ref bean="deviceSUV"/>
+                <bean class="demo.model.Device">
+                    <property name="model" value="Qashqai"/>
+                    <property name="make" value="Nissan"/>
+                </bean>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="address">
+            <map>
+                <entry key="Baku" value="17"/>
+            </map>
+        </constructor-arg>
+        <!--        <property name="phoneNumbers" >-->
+        <!--            <list>-->
+        <!--                <value>+99455640423</value>-->
+        <!--                <value>99</value>-->
+        <!--            </list>-->
+        <!--        </property>-->
+    </bean>
+
+    <alias name="notification" alias="notification-sms"/>
+
+    <bean id="employeeWithName" class="demo.model.Employee">
+        <constructor-arg name="name" value="Kamran" type="java.lang.String"/>
+        <constructor-arg name="surname" value="Mammadzada" type="java.lang.String"/>
+    </bean>
+
+    <bean id="employeeWithSalary" class="demo.model.Employee">
+        <constructor-arg name="age" value="23" type="int"/>
+        <constructor-arg name="salary" value="99.0" type="double"/>
+    </bean>
+
+    <bean name="deviceSport" class="demo.model.Device">
+        <property name="make" value="Subaru"/>
+        <property name="model" value="Impreza"/>
+    </bean>
+
+    <bean name="deviceSUV" class="demo.model.Device">
+        <property name="make" value="Toyota"/>
+        <property name="model" value="Tundra"/>
+    </bean>
+</beans>
