@@ -1,0 +1,7 @@
+az\spring\hibernate\config\HibernateConfig.class
+az\spring\hibernate\SpringHibernateMain.class
+az\spring\hibernate\config\DbConfig.class
+az\spring\hibernate\dao\Dao.class
+az\spring\hibernate\dao\AbstractSessionFactory.class
+az\spring\hibernate\dao\EmployeeDao.class
+az\spring\hibernate\model\Employee.class

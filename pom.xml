@@ -11,6 +11,7 @@
     <modules>
         <module>spring-jdbc</module>
         <module>spring-core</module>
+        <module>spring-hibernate</module>
     </modules>
 
     <properties>

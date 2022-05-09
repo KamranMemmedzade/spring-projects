@@ -1,6 +1,5 @@
 package az.jdbc.demo.dao;
 
-import az.jdbc.demo.model.Employee;
 
 import java.util.List;
 
